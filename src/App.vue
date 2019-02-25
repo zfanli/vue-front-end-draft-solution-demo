@@ -9,8 +9,10 @@
           text-color="#fff"
           active-text-color="#ffd04b"
         >
+          <!-- Home link -->
           <el-menu-item index="/">Home</el-menu-item>
 
+          <!-- Demo link -->
           <el-menu-item-group title="Demo">
             <el-menu-item index="/payment">支払実績管理</el-menu-item>
           </el-menu-item-group>
@@ -25,6 +27,8 @@
           </el-menu-item-group>
         </el-menu>
       </el-aside>
+
+      <!-- Main panel -->
       <el-main>
         <router-view/>
       </el-main>
@@ -35,13 +39,14 @@
 <script>
 export default {
   data() {
+    // Edit test buttons for fill sider menu panel
     let categories = []
     for (let i = 0; i < 2; i++) {
       let buttons = []
       for (let idx = 0; idx < ((i % 2) + 1) * 2 - (i % 2); idx++) {
         buttons[idx] = {
+          // Button name: Button n-n
           title: `Button ${i + 1}-${idx + 1}`,
-          path: '/',
         }
       }
 
@@ -88,9 +93,9 @@ a {
     }
   }
 
-    .el-main {
-      display: flex;
-      justify-content: center;
-    }
+  .el-main {
+    display: flex;
+    justify-content: center;
+  }
 }
 </style>

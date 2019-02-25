@@ -6,10 +6,13 @@
       </container-box-m-r>
     </page-title>
 
+    <!-- Error box for show error message if exists. -->
     <el-alert v-show="error" :title="message" type="error" :closable="false" show-icon></el-alert>
 
+    <!-- Search filter form. -->
     <el-form :inline="true" label-position="left" :model="form" label-width="6rem">
       <el-row>
+        <!-- 広告業者: Selection -->
         <el-col :span="12">
           <el-form-item label="広告業者" size="small">
             <el-select
@@ -28,12 +31,14 @@
           </el-form-item>
         </el-col>
 
+        <!-- パッケージ名: Inpute -->
         <el-col :span="12">
           <el-form-item label="パッケージ名" size="small">
             <el-input v-model="form.packageName" placeholder="入力してください" suffix-icon="el-icon-edit"/>
           </el-form-item>
         </el-col>
 
+        <!-- 請求締日: Date picker for start to end -->
         <el-col :span="24">
           <el-form-item label="請求締日" size="small">
             <el-col :span="11">
@@ -58,12 +63,14 @@
           </el-form-item>
         </el-col>
 
+        <!-- メディア名: Input -->
         <el-col :span="12">
           <el-form-item label="メディア名" size="small">
             <el-input v-model="form.mediaName" placeholder="入力してください" suffix-icon="el-icon-edit"/>
           </el-form-item>
         </el-col>
 
+        <!-- 支払入力: Selection -->
         <el-col :span="12">
           <el-form-item label="支払入力" size="small">
             <el-select
@@ -82,12 +89,14 @@
           </el-form-item>
         </el-col>
 
+        <!-- 商品名: Input -->
         <el-col :span="12">
           <el-form-item label="商品名" size="small">
             <el-input v-model="form.itemName" placeholder="入力してください" suffix-icon="el-icon-edit"/>
           </el-form-item>
         </el-col>
 
+        <!-- チャンネル: Selection -->
         <el-col :span="12">
           <el-form-item label="チャンネル" size="small">
             <el-select
@@ -102,6 +111,7 @@
           </el-form-item>
         </el-col>
 
+        <!-- 掲載期間: Date picker for start to end -->
         <el-col :span="24">
           <el-form-item label="掲載期間" size="small">
             <el-col :span="11">
@@ -132,14 +142,14 @@
       </el-row>
     </el-form>
 
+    <!-- Action buttons -->
     <div class="search-button">
       <el-button type="primary" :loading="loading" size="small">検索</el-button>
       <el-button size="small" @click="handleClear">クリア</el-button>
     </div>
 
-    <div class="payment-data">
-
-    </div>
+    <!-- Result list -->
+    <div class="payment-data"></div>
   </div>
 </template>
 
@@ -149,9 +159,10 @@ import ContainerBoxMR from '@/components/ContainerBoxMR.vue'
 import { mapState, mapMutations } from 'vuex'
 
 export default {
-  name: 'Demo',
+  name: 'Payment',
   data() {
     return {
+      // for store form date locally
       form: {
         vendor: '',
         requestStartDate: '',
@@ -170,6 +181,7 @@ export default {
     ContainerBoxMR,
   },
   computed: {
+    // fetch attributes from state
     ...mapState([
       'error',
       'message',
@@ -180,6 +192,11 @@ export default {
     ]),
   },
   methods: {
+    /**
+     * For handle clear button onClick event.
+     *
+     * Reset the form to empty.
+     */
     handleClear() {
       this.form = {
         vendor: '',
@@ -193,6 +210,7 @@ export default {
         registeredEndDate: '',
       }
     },
+    // fetch actions
     ...mapMutations({
       testError: 'error',
     }),

@@ -3,6 +3,8 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
+// This is a test data,
+// it will be deleted while layout is done
 const pd = [
   {
     vendor: 'Test Vendor',

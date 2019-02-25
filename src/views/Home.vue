@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <!-- This is a Dummy Home page. -->
     <page-title title="Home Page"/>
     <div>This is Home Page.</div>
   </div>

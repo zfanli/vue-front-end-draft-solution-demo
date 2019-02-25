@@ -1,6 +1,8 @@
 <template>
   <div class="page-title">
+    <!-- Show a page title normally -->
     <h1 class="page-title-head">{{ title }}</h1>
+    <!-- Slot for place buttons -->
     <slot/>
   </div>
 </template>

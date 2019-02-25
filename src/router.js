@@ -23,6 +23,7 @@ export default new Router({
         import(/* webpackChunkName: "Payment" */ './views/Payment.vue'),
     },
     {
+      // For handle 404
       path: '/*',
       name: 'dummy',
       component: () =>
