@@ -42,17 +42,17 @@ Data Schema
 
 ```json
 {
-  "uniqId": Number, // PK
+  "uniqueId": Number, // PK
   "vendor": String, // 広告業者
   "packageName": String, // パッケージ名
-  "registeredMonth": Date, // 掲載月	 YYYY-MM
-  "requestDeadline": Date, // 請求締日	YYYY-MM-DD
+  "registeredMonth": String, // 掲載月	 YYYY-MM
+  "requestDeadline": String, // 請求締日	YYYY-MM-DD
   "payStatus": Number, // 支払入力	0=未支払;1=支払済み;
   "mediaName": String, // メディア名
   "itemName": String, // 商品名
-  "channel": Number, // チャンネル	0=PC;1=Mobile;
-  "registeredStartDate": Date, // 掲載期間	START YYYY-MM-DD
-  "registeredEndDate": Date, // 掲載期間	END YYYY-MM-DD
+  "channel": String, // チャンネル	'0'=PC;'1'=Mobile;
+  "registeredStartDate": String, // 掲載期間	START YYYY-MM-DD
+  "registeredEndDate": String, // 掲載期間	END YYYY-MM-DD
   "price": Number, // 価格
   "paidAmount": Number // 支払額
 }
