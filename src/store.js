@@ -6,6 +6,7 @@ Vue.use(Vuex)
 const pd = [
   {
     vendor: 'Test Vendor',
+    registeredMonth: new Date('2019-01'),
     requestStartDate: new Date('2019-01-22'),
     requestEndDate: new Date('2019-01-23'),
     payStatus: '',
