@@ -85,7 +85,8 @@ a {
   display: flex;
 
   .el-aside {
-    // height: 100vh;
+    position: fixed;
+    width: 200px;
 
     .el-menu {
       height: 100vh;
@@ -94,6 +95,7 @@ a {
   }
 
   .el-main {
+    margin-left: 200px;
     display: flex;
     justify-content: center;
   }
