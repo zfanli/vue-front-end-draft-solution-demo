@@ -247,7 +247,10 @@ export default {
       }
     },
     handleSearch() {
-      this.$store.dispatch('getPaymentData', this.form)
+      // set loading status first
+      this.$store.commit('loading', true)
+      // sleep a secend and then fetch data
+      setTimeout(() => this.$store.dispatch('getPaymentData', this.form), 1000)
     },
     // fetch actions
     ...mapMutations({
