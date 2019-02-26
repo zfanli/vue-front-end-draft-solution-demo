@@ -1,5 +1,5 @@
 <template>
-  <table class="pd-item" cellspacing="0">
+  <table class="pd-item">
     <thead>
       <tr>
         <th>広告業者</th>
@@ -157,30 +157,18 @@ export default {
   max-width: 800px;
   width: 100%;
   text-align: center;
-  border: 1px solid #909399;
+  border-spacing: 0;
+  border-collapse: collapse;
+  color: #606266;
 
   thead {
-    padding: 0;
-
-    tr {
-      th {
-        background-color: #909399;
-        color: #fff;
-        padding: 0.5rem;
-      }
-    }
+    color: #909399;
   }
 
-  .media {
-    tr {
-      th {
-        background-color: #909399;
-      }
-    }
-  }
-
-  th:not(:last-child) {
-    border-right: 1px solid #fff;
+  th,
+  td {
+    height: 2rem;
+    border: 1px solid #ebeef5;
   }
 
   .el-input,
@@ -191,6 +179,7 @@ export default {
       text-align: center;
       border: none;
       width: fit-content;
+      color: inherit;
     }
   }
 }

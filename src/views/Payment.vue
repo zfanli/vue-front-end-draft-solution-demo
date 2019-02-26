@@ -2,7 +2,18 @@
   <div class="payment">
     <page-title title="支払実績管理">
       <container-box-m-r>
-        <el-button type="primary" size="small" @click="testError('Test Error Box.')">更新</el-button>
+        <el-button type="primary" size="small">更新</el-button>
+
+        <!-- Drop down menu for test use -->
+        <el-dropdown>
+          <span class="el-dropdown-link">
+            <i class="el-icon-info"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <el-dropdown-item @click.native="testError('Test Error Box.')">「テスト用」エラー表示</el-dropdown-item>
+            <el-dropdown-item @click.native="fillData">「テスト用」データ入れ</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
       </container-box-m-r>
     </page-title>
 
@@ -144,18 +155,25 @@
 
     <!-- Action buttons -->
     <div class="search-button">
-      <el-button type="primary" :loading="loading" size="small">検索</el-button>
+      <el-button type="primary" @click="handleSearch" :loading="loading" size="small">検索</el-button>
       <el-button size="small" @click="handleClear">クリア</el-button>
     </div>
 
     <!-- Result list -->
-    <div class="payment-data"></div>
+    <div v-loading="loading">
+      <payment-data-item
+        v-for="d in Object.keys(paymentData)"
+        :key="paymentData[d].uniqueId"
+        :item="paymentData[d]"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import PageTitle from '@/components/PageTitle.vue'
 import ContainerBoxMR from '@/components/ContainerBoxMR.vue'
+import PaymentDataItem from '@/components/PaymentDataItem.vue'
 import { mapState, mapMutations } from 'vuex'
 
 export default {
@@ -165,12 +183,13 @@ export default {
       // for store form date locally
       form: {
         vendor: '',
+        packageName: '',
         requestStartDate: '',
         requestEndDate: '',
         payStatus: '',
         mediaName: '',
         itemName: '',
-        channel: '0',
+        channel: '',
         registeredStartDate: '',
         registeredEndDate: '',
       },
@@ -179,6 +198,7 @@ export default {
   components: {
     PageTitle,
     ContainerBoxMR,
+    PaymentDataItem,
   },
   computed: {
     // fetch attributes from state
@@ -205,10 +225,29 @@ export default {
         payStatus: '',
         mediaName: '',
         itemName: '',
-        channel: '0',
+        channel: '',
         registeredStartDate: '',
         registeredEndDate: '',
       }
+    },
+    /**
+     * Fill test data.
+     */
+    fillData() {
+      this.form = {
+        vendor: 'Test',
+        requestStartDate: '',
+        requestEndDate: '',
+        payStatus: '',
+        mediaName: '',
+        itemName: '',
+        channel: '',
+        registeredStartDate: '',
+        registeredEndDate: '',
+      }
+    },
+    handleSearch() {
+      this.$store.dispatch('getPaymentData', this.form)
     },
     // fetch actions
     ...mapMutations({
@@ -222,6 +261,10 @@ export default {
 .payment {
   font-size: 14px;
   max-width: 800px;
+
+  .el-dropdown {
+    margin-left: 1rem;
+  }
 
   .el-alert {
     margin-bottom: 1rem;
@@ -251,6 +294,7 @@ export default {
   .search-button {
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 3rem;
   }
 }
 
