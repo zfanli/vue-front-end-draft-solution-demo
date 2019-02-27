@@ -161,7 +161,9 @@
 
     <!-- Result list -->
     <div v-loading="loading">
+      <div v-if="Object.keys(paymentData).length === 0">データなし</div>
       <payment-data-item
+        v-else
         v-for="d in Object.keys(paymentData)"
         :key="paymentData[d].uniqueId"
         :item="paymentData[d]"
@@ -235,15 +237,16 @@ export default {
      */
     fillData() {
       this.form = {
-        vendor: 'Test',
-        requestStartDate: '',
-        requestEndDate: '',
-        payStatus: '',
-        mediaName: '',
-        itemName: '',
-        channel: '',
-        registeredStartDate: '',
-        registeredEndDate: '',
+        vendor: 'Test Vendor',
+        packageName: 'Test Package',
+        requestStartDate: '2019-01-01',
+        requestEndDate: '2019-01-31',
+        payStatus: '0',
+        mediaName: 'Test Media',
+        itemName: 'Test Item',
+        channel: '0',
+        registeredStartDate: '2019-01-02',
+        registeredEndDate: '2019-01-30',
       }
     },
     handleSearch() {
