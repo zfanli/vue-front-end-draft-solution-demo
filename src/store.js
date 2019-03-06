@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { api } from './App.config'
-import Axios from 'axios'
+// import { api } from './App.config'
+// import Axios from 'axios'
 
 Vue.use(Vuex)
 
@@ -44,14 +44,22 @@ export default new Vuex.Store({
   },
   actions: {
     getPaymentData({ commit }, filter) {
-      Axios.get(api.paymentData, {
-        params: filter,
-      }).then(({ data }) => {
-        const result = {}
-        data.map((t, i) => (result[i] = t))
-        commit('paymentData', result)
-        commit('loading', false)
-      })
+      // Axios.get(api.paymentData, {
+      //   params: filter,
+      // }).then(({ data }) => {
+      //   const result = {}
+      //   data.map((t, i) => (result[i] = t))
+      //   commit('paymentData', result)
+      //   commit('loading', false)
+      // })
+      const data = require('./assets/data.json')
+      const result = {}
+
+      console.log(filter)
+
+      data.map((t, i) => (result[i] = t))
+      commit('paymentData', result)
+      commit('loading', false)
     },
   },
 })
