@@ -2,9 +2,9 @@
   <table class="pd-item">
     <thead>
       <tr>
-        <th>広告業者</th>
-        <th>パッケージ名</th>
-        <th>掲載月</th>
+        <th>Vendor</th>
+        <th>Package Name</th>
+        <th>Register Month</th>
       </tr>
     </thead>
     <tr>
@@ -18,16 +18,16 @@
         <el-date-picker
           v-model="inputItem.registeredMonth"
           type="month"
-          placeholder="月を選択してください"
+          placeholder="Please select..."
           size="small"
         />
       </td>
     </tr>
     <thead>
       <tr>
-        <th>請求締日</th>
-        <th>支払額</th>
-        <th>支払入力</th>
+        <th>Request Deadline</th>
+        <th>Amount</th>
+        <th>Payment</th>
       </tr>
     </thead>
     <tr>
@@ -35,7 +35,7 @@
         <el-date-picker
           v-model="inputItem.requestDeadline"
           type="date"
-          placeholder="日付を選択してください"
+          placeholder="Please select..."
           size="small"
         />
       </td>
@@ -45,9 +45,9 @@
       <td>
         <el-select
           v-model="inputItem.payStatus"
-          placeholder="選択してください"
-          loading-text="ロード中..."
-          no-data-text="データなし"
+          placeholder="Please select..."
+          loading-text="Loading..."
+          no-data-text="No Data"
           size="small"
         >
           <el-option
@@ -62,9 +62,9 @@
 
     <thead class="media">
       <tr>
-        <th>メディア名</th>
-        <th>商品名</th>
-        <th>チャンネル</th>
+        <th>Media Name</th>
+        <th>Item Name</th>
+        <th>Channel</th>
       </tr>
     </thead>
     <tr>
@@ -77,9 +77,9 @@
       <td>
         <el-select
           v-model="inputItem.channel"
-          placeholder="選択してください"
-          loading-text="ロード中..."
-          no-data-text="データなし"
+          placeholder="Please select..."
+          loading-text="Loading..."
+          no-data-text="No Data"
           size="small"
         >
           <el-option label="PC" value="0"></el-option>
@@ -89,8 +89,8 @@
     </tr>
     <thead class="media">
       <tr>
-        <th colspan="2">掲載期間</th>
-        <th>価格</th>
+        <th colspan="2">Register Period</th>
+        <th>Price</th>
       </tr>
     </thead>
     <tr>
@@ -98,14 +98,14 @@
         <el-date-picker
           v-model="inputItem.registeredStartDate"
           type="date"
-          placeholder="日付を選択してください"
+          placeholder="Please select..."
           size="small"
         />
         <span class="seperator">-</span>
         <el-date-picker
           v-model="inputItem.registeredEndDate"
           type="date"
-          placeholder="日付を選択してください"
+          placeholder="Please select..."
           size="small"
         />
       </td>

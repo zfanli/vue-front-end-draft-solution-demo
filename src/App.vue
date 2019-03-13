@@ -14,7 +14,7 @@
 
           <!-- Demo link -->
           <el-menu-item-group title="Demo">
-            <el-menu-item index="/payment">支払実績管理</el-menu-item>
+            <el-menu-item index="/payment">Payment Management</el-menu-item>
           </el-menu-item-group>
 
           <!-- Fill buttons -->

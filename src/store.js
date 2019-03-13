@@ -13,11 +13,11 @@ export default new Vuex.Store({
     vendorOptions: [],
     payStatusOptions: [
       {
-        label: '未支払',
+        label: 'Unpaid',
         value: '0',
       },
       {
-        label: '支払済',
+        label: 'Paid',
         value: '1',
       },
     ],

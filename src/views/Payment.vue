@@ -2,7 +2,7 @@
   <div class="payment">
     <page-title title="支払実績管理">
       <container-box-m-r>
-        <el-button type="primary" size="small">更新</el-button>
+        <el-button type="primary" size="small">Update</el-button>
 
         <!-- Drop down menu for test use -->
         <el-dropdown>
@@ -10,8 +10,8 @@
             <i class="el-icon-info"></i>
           </span>
           <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item @click.native="testError('Test Error Box.')">「テスト用」エラー表示</el-dropdown-item>
-            <el-dropdown-item @click.native="fillData">「テスト用」データ入れ</el-dropdown-item>
+            <el-dropdown-item @click.native="testError('Test Error Box.')">[For test] Show error box</el-dropdown-item>
+            <el-dropdown-item @click.native="fillData">[For test] Fill test data</el-dropdown-item>
           </el-dropdown-menu>
         </el-dropdown>
       </container-box-m-r>
@@ -23,14 +23,14 @@
     <!-- Search filter form. -->
     <el-form :inline="true" label-position="left" :model="form" label-width="6rem">
       <el-row>
-        <!-- 広告業者: Selection -->
+        <!-- Ad Vonder: Selection -->
         <el-col :span="12">
-          <el-form-item label="広告業者" size="small">
+          <el-form-item label="Ad Vonder" size="small">
             <el-select
               v-model="form.vendor"
-              placeholder="選択してください"
-              loading-text="ロード中..."
-              no-data-text="データなし"
+              placeholder="Please select..."
+              loading-text="Loading..."
+              no-data-text="No Data"
             >
               <el-option
                 v-for="item in vendorOptions"
@@ -42,21 +42,21 @@
           </el-form-item>
         </el-col>
 
-        <!-- パッケージ名: Inpute -->
+        <!-- Pakage Name: Inpute -->
         <el-col :span="12">
-          <el-form-item label="パッケージ名" size="small">
-            <el-input v-model="form.packageName" placeholder="入力してください" suffix-icon="el-icon-edit"/>
+          <el-form-item label="Pakage" size="small">
+            <el-input v-model="form.packageName" placeholder="Please input..." suffix-icon="el-icon-edit"/>
           </el-form-item>
         </el-col>
 
-        <!-- 請求締日: Date picker for start to end -->
+        <!-- Request Deadline: Date picker for start to end -->
         <el-col :span="24">
-          <el-form-item label="請求締日" size="small">
+          <el-form-item label="Deadline" size="small">
             <el-col :span="11">
               <el-form-item class="date-picker" size="small">
                 <el-date-picker
                   type="date"
-                  placeholder="日付を選択してください"
+                  placeholder="Please select..."
                   v-model="form.requestStartDate"
                 ></el-date-picker>
               </el-form-item>
@@ -68,27 +68,27 @@
 
             <el-col :span="11">
               <el-form-item class="date-picker" size="small">
-                <el-date-picker type="date" placeholder="日付を選択してください" v-model="form.requestEndDate"></el-date-picker>
+                <el-date-picker type="date" placeholder="Please select..." v-model="form.requestEndDate"></el-date-picker>
               </el-form-item>
             </el-col>
           </el-form-item>
         </el-col>
 
-        <!-- メディア名: Input -->
+        <!-- Media Name: Input -->
         <el-col :span="12">
-          <el-form-item label="メディア名" size="small">
-            <el-input v-model="form.mediaName" placeholder="入力してください" suffix-icon="el-icon-edit"/>
+          <el-form-item label="Media Name" size="small">
+            <el-input v-model="form.mediaName" placeholder="Please input..." suffix-icon="el-icon-edit"/>
           </el-form-item>
         </el-col>
 
-        <!-- 支払入力: Selection -->
+        <!-- Payment: Selection -->
         <el-col :span="12">
-          <el-form-item label="支払入力" size="small">
+          <el-form-item label="Payment" size="small">
             <el-select
               v-model="form.payStatus"
-              placeholder="選択してください"
-              loading-text="ロード中..."
-              no-data-text="データなし"
+              placeholder="Please select..."
+              loading-text="Loading..."
+              no-data-text="No Data"
             >
               <el-option
                 v-for="item in payStatusOptions"
@@ -100,21 +100,21 @@
           </el-form-item>
         </el-col>
 
-        <!-- 商品名: Input -->
+        <!-- Item Name: Input -->
         <el-col :span="12">
-          <el-form-item label="商品名" size="small">
-            <el-input v-model="form.itemName" placeholder="入力してください" suffix-icon="el-icon-edit"/>
+          <el-form-item label="Item Name" size="small">
+            <el-input v-model="form.itemName" placeholder="Please input..." suffix-icon="el-icon-edit"/>
           </el-form-item>
         </el-col>
 
-        <!-- チャンネル: Selection -->
+        <!-- Channel: Selection -->
         <el-col :span="12">
-          <el-form-item label="チャンネル" size="small">
+          <el-form-item label="Channel" size="small">
             <el-select
               v-model="form.channel"
-              placeholder="選択してください"
-              loading-text="ロード中..."
-              no-data-text="データなし"
+              placeholder="Please select..."
+              loading-text="Loading..."
+              no-data-text="No Data"
             >
               <el-option label="PC" value="0"></el-option>
               <el-option label="Mobile" value="1"></el-option>
@@ -122,14 +122,14 @@
           </el-form-item>
         </el-col>
 
-        <!-- 掲載期間: Date picker for start to end -->
+        <!-- Retister Period: Date picker for start to end -->
         <el-col :span="24">
-          <el-form-item label="掲載期間" size="small">
+          <el-form-item label="Period" size="small">
             <el-col :span="11">
               <el-form-item class="date-picker" size="small">
                 <el-date-picker
                   type="date"
-                  placeholder="日付を選択してください"
+                  placeholder="Please select..."
                   v-model="form.registeredStartDate"
                 ></el-date-picker>
               </el-form-item>
@@ -143,7 +143,7 @@
               <el-form-item class="date-picker" size="small">
                 <el-date-picker
                   type="date"
-                  placeholder="日付を選択してください"
+                  placeholder="Please select..."
                   v-model="form.registeredEndDate"
                 ></el-date-picker>
               </el-form-item>
@@ -155,13 +155,13 @@
 
     <!-- Action buttons -->
     <div class="search-button">
-      <el-button type="primary" @click="handleSearch" :loading="loading" size="small">検索</el-button>
-      <el-button size="small" @click="handleClear">クリア</el-button>
+      <el-button type="primary" @click="handleSearch" :loading="loading" size="small">Search</el-button>
+      <el-button size="small" @click="handleClear">Clear</el-button>
     </div>
 
     <!-- Result list -->
     <div v-loading="loading">
-      <div v-if="Object.keys(paymentData).length === 0">データなし</div>
+      <div v-if="Object.keys(paymentData).length === 0">No Data</div>
       <payment-data-item
         v-else
         v-for="d in Object.keys(paymentData)"
